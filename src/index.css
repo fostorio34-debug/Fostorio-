@@ -1,13 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: var(--app-primary);
+  --color-primary-hover: var(--app-primary-hover);
+  --color-accent: var(--app-accent);
+  --color-accent-hover: var(--app-accent-hover);
+  --color-background-light: #F8F9FA;
+  --color-background-dark: #0B0E14;
+  --color-text-light: #1e2a4a;
+  --color-text-dark: #F5F5F5;
+}
+
+:root {
+  --app-primary: #1e2a4a;
+  --app-primary-hover: #131a31;
+  --app-accent: #c49a5c;
+  --app-accent-hover: #a88147;
+}
+
+.dark {
+  --app-primary: #c49a5c;
+  --app-primary-hover: #a88147;
+  --app-accent: #1e2a4a;
+  --app-accent-hover: #131a31;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  background-color: var(--color-background-light);
+  color: var(--color-text-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-dark);
 }
 
